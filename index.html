@@ -25,19 +25,56 @@
   </header>
 
   <main>
-    <section class="hero">
-      <!-- The big photo of the two of you: save it as images/hero.jpg -->
-      <div class="photo photo--sunset hero__photo" data-label="images/hero.jpg">
-        <img src="images/hero.jpg" alt="The two of us" fetchpriority="high" onerror="this.remove()">
+    <section class="hero hero--split">
+      <!-- Background: Matachica's beach (courtesy of the resort) -->
+      <div class="photo photo--sunset hero__photo" data-label="">
+        <img src="images/matachica-3.jpg" alt="" fetchpriority="high" onerror="this.remove()">
       </div>
-      <div class="hero__content">
-        <p class="eyebrow">We're getting married</p>
-        <h1>Tara <span class="amp">&amp;</span> Eli</h1>
-        <p class="hero__meta">December 11, 2027<span class="dot">·</span>Ambergris Caye, Belize</p>
-        <div class="hero__actions">
-          <a class="button" href="reserve.html">Reserve a room</a>
-          <a class="button button--ghost" href="getting-there.html">Getting there</a>
+      <div class="container hero__inner">
+        <div class="hero__content">
+          <p class="eyebrow">We're getting married</p>
+          <h1>Tara <span class="amp">&amp;</span> Eli</h1>
+          <p class="hero__meta">December 11, 2027<span class="dot">·</span>Ambergris Caye, Belize</p>
+          <div class="hero__actions">
+            <a class="button" href="reserve.html">Reserve a room</a>
+            <a class="button button--ghost" href="getting-there.html">Getting there</a>
+          </div>
         </div>
+
+        <!-- Photos of us: images/us-1.jpg ... us-19.jpg. To add one, copy a slide line below.
+             Only the first uses src; the rest use data-src so they load one at a time as the show plays.
+             The arrows and photo counter work automatically. -->
+        <figure class="slideshow" data-slideshow aria-roledescription="carousel" aria-label="Photos of Tara and Eli">
+          <div class="slideshow__frame">
+            <img class="slideshow__slide is-active" src="images/us-1.jpg" alt="Eli dipping Tara under a seaside archway lined with palm trees">
+            <img class="slideshow__slide" data-src="images/us-2.jpg" alt="Tara and Eli crouched beside an alpaca wearing a cap and sunglasses">
+            <img class="slideshow__slide" data-src="images/us-3.jpg" alt="An instant-film photo of Tara and Eli smiling together">
+            <img class="slideshow__slide" data-src="images/us-4.jpg" alt="Tara and Eli being goofy under string lights at a party">
+            <img class="slideshow__slide" data-src="images/us-5.jpg" alt="Tara and Eli standing in a river between towering canyon walls">
+            <img class="slideshow__slide" data-src="images/us-6.jpg" alt="Tara and Eli dressed up on a deck overlooking the mountains and the town below">
+            <img class="slideshow__slide" data-src="images/us-7.jpg" alt="Tara leaping into Eli's arms to kiss his cheek in front of a lit-up Ferris wheel">
+            <img class="slideshow__slide" data-src="images/us-8.jpg" alt="Tara and Eli cuddled up by the fireplace next to their Christmas tree">
+            <img class="slideshow__slide" data-src="images/us-9.jpg" alt="Tara and Eli laughing on a lakeside boardwalk with snowy mountains behind them">
+            <img class="slideshow__slide" data-src="images/us-10.jpg" alt="Tara and Eli on a suspension bridge in the jungle">
+            <img class="slideshow__slide" data-src="images/us-11.jpg" alt="Tara and Eli posing mid-skate at an outdoor ice rink">
+            <img class="slideshow__slide" data-src="images/us-12.jpg" alt="Tara in her graduation cap and gown with Eli by a lake, a city skyline behind them">
+            <img class="slideshow__slide" data-src="images/us-13.jpg" alt="Tara holding a cake beside Eli under an Engaged banner">
+            <img class="slideshow__slide" data-src="images/us-14.jpg" alt="Tara and Eli hiking past steaming geysers with a bison grazing behind them">
+            <img class="slideshow__slide" data-src="images/us-15.jpg" alt="Tara and Eli smiling at each other above a turquoise cove on the coast">
+            <img class="slideshow__slide" data-src="images/us-16.jpg" alt="Tara and Eli on a clifftop trail high above the ocean">
+            <img class="slideshow__slide" data-src="images/us-18.jpg" alt="Tara and Eli on a mountain trail with snowy jagged peaks behind them">
+            <img class="slideshow__slide" data-src="images/us-19.jpg" alt="Tara and Eli scuba diving hand in hand over a coral reef">
+          </div>
+          <figcaption class="slideshow__controls" hidden>
+            <button class="slideshow__arrow" type="button" data-step="-1" aria-label="Previous photo">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 5l-7 7 7 7" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </button>
+            <span class="slideshow__count"></span>
+            <button class="slideshow__arrow" type="button" data-step="1" aria-label="Next photo">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 5l7 7-7 7" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </button>
+          </figcaption>
+        </figure>
       </div>
     </section>
 
@@ -77,5 +114,7 @@
       <p>December 11, 2027 · Matachica Resort · Ambergris Caye, Belize</p>
     </div>
   </footer>
+
+  <script src="js/slideshow.js"></script>
 </body>
 </html>

@@ -52,38 +52,57 @@
 
               <div class="options">
                 <article class="option">
-                  <p class="option__tag">By air</p>
-                  <h3>Puddle jumper</h3>
-                  <p class="option__time">About 15&ndash;20 minutes</p>
-                  <p>Maya Island Air flies small planes from the international airport straight to San Pedro, with great views of the reef on the way in.</p>
-                  <p>Small planes have tighter luggage limits, so check before you pack.</p>
-                  <ul class="option__links">
-                    <li>
-                      <span>Maya Island Air</span>
-                      <a class="pill pill--solid" href="https://www.mayaislandair.com/belize-flights/" target="_blank" rel="noopener">Book a flight</a>
-                      <a class="pill" href="https://www.mayaislandair.com/belize-flight-schedule/" target="_blank" rel="noopener">Schedule</a>
-                    </li>
-                  </ul>
+                  <!-- Photo from Maya Island Air's website, used with their permission -->
+                  <figure class="photo option__photo" data-label="Maya Island Air">
+                    <img src="images/maya-island-air.jpg" alt="A Maya Island Air plane flying low over an island airstrip under puffy white clouds" loading="lazy" onerror="this.remove()">
+                  </figure>
+                  <div class="option__body">
+                    <p class="option__tag">By air</p>
+                    <h3>Puddle jumper</h3>
+                    <p class="option__time">About 15&ndash;20 minutes</p>
+                    <p>Maya Island Air flies small planes from the international airport straight to San Pedro, with great views of the reef on the way in.</p>
+                    <p>Small planes have tighter luggage limits, so check before you pack.</p>
+                    <ul class="option__links">
+                      <li>
+                        <span>Maya Island Air</span>
+                        <a class="pill pill--solid" href="https://www.mayaislandair.com/belize-flights/" target="_blank" rel="noopener">Book a flight</a>
+                        <a class="pill" href="https://www.mayaislandair.com/belize-flight-schedule/" target="_blank" rel="noopener">Schedule</a>
+                      </li>
+                    </ul>
+                  </div>
                 </article>
 
                 <article class="option">
-                  <p class="option__tag">By sea</p>
-                  <h3>Ferry (water taxi)</h3>
-                  <p class="option__time">About 90 minutes, plus a cab</p>
-                  <p>Take a taxi from the airport to the water taxi terminal in Belize City (about 25 minutes), then ride the ferry to San Pedro. It usually stops at Caye Caulker along the way.</p>
-                  <p>The budget-friendly option. Two companies run this route:</p>
-                  <ul class="option__links">
-                    <li>
-                      <span>San Pedro Belize Express</span>
-                      <a class="pill pill--solid" href="https://belizewatertaxi.com/" target="_blank" rel="noopener">Book</a>
-                      <a class="pill" href="https://belizewatertaxi.com/schedule/" target="_blank" rel="noopener">Schedule</a>
-                    </li>
-                    <li>
-                      <span>Caribbean Sprinter</span>
-                      <a class="pill pill--solid" href="https://sprinter.bz/book" target="_blank" rel="noopener">Book</a>
-                      <a class="pill" href="https://sprinter.bz/sailings" target="_blank" rel="noopener">Schedule</a>
-                    </li>
-                  </ul>
+                  <!-- Photos from each ferry company's website, used with their permission -->
+                  <div class="option__photo option__photo--split">
+                    <figure class="photo" data-label="San Pedro Belize Express">
+                      <img src="images/ferry-belize-express.jpg" alt="A San Pedro Belize Express water taxi crossing turquoise water" loading="lazy" onerror="this.remove()">
+                      <figcaption class="photo__caption">San Pedro Belize Express</figcaption>
+                    </figure>
+                    <figure class="photo" data-label="Caribbean Sprinter">
+                      <img src="images/ferry-caribbean-sprinter.jpg" alt="A Caribbean Sprinter water taxi speeding across the sea, seen from above" loading="lazy" onerror="this.remove()">
+                      <figcaption class="photo__caption">Caribbean Sprinter</figcaption>
+                    </figure>
+                  </div>
+                  <div class="option__body">
+                    <p class="option__tag">By sea</p>
+                    <h3>Ferry (water taxi)</h3>
+                    <p class="option__time">About 90 minutes, plus a cab</p>
+                    <p>Take a taxi from the airport to the water taxi terminal in Belize City (about 25 minutes), then ride the ferry to San Pedro. It usually stops at Caye Caulker along the way.</p>
+                    <p>The budget-friendly option. Two companies run this route:</p>
+                    <ul class="option__links">
+                      <li>
+                        <span>San Pedro Belize Express</span>
+                        <a class="pill pill--solid" href="https://belizewatertaxi.com/" target="_blank" rel="noopener">Book</a>
+                        <a class="pill" href="https://belizewatertaxi.com/schedule/" target="_blank" rel="noopener">Schedule</a>
+                      </li>
+                      <li>
+                        <span>Caribbean Sprinter</span>
+                        <a class="pill pill--solid" href="https://sprinter.bz/book" target="_blank" rel="noopener">Book</a>
+                        <a class="pill" href="https://sprinter.bz/sailings" target="_blank" rel="noopener">Schedule</a>
+                      </li>
+                    </ul>
+                  </div>
                 </article>
               </div>
             </div>
@@ -105,6 +124,13 @@
             <li>You'll need a valid passport to enter Belize.</li>
           </ul>
         </aside>
+
+        <p class="credits credits--spaced">
+          Photos courtesy of
+          <a href="https://www.mayaislandair.com/" target="_blank" rel="noopener">Maya Island Air</a>,
+          <a href="https://belizewatertaxi.com/" target="_blank" rel="noopener">San Pedro Belize Express</a> and
+          <a href="https://sprinter.bz/" target="_blank" rel="noopener">Caribbean Sprinter</a>.
+        </p>
       </div>
     </section>
   </main>
