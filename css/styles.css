@@ -1,0 +1,835 @@
+/* ==========================================================================
+   Belize wedding site — shared styles
+   ========================================================================== */
+
+:root {
+  --sand: #faf6ef;
+  --sand-deep: #f2e9da;
+  --ink: #17393b;
+  --ink-soft: #4d6668;
+  --sea: #1f8a8a;
+  --sea-deep: #0e5459;
+  --coral: #e0715a;
+  --coral-deep: #c95b45;
+  --white: #fff;
+
+  --font-display: "Cormorant Garamond", Georgia, "Times New Roman", serif;
+  --font-body: "Jost", "Helvetica Neue", Arial, sans-serif;
+
+  --radius: 14px;
+  --shadow: 0 12px 32px rgba(14, 60, 64, 0.12);
+  --max: 1120px;
+  --gutter: 16px;
+
+  color-scheme: light;
+}
+
+/* Base
+   -------------------------------------------------------------------------- */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+  background: var(--sand);
+  color: var(--ink);
+  font-family: var(--font-body);
+  font-size: 1.0625rem;
+  font-weight: 300;
+  line-height: 1.75;
+  -webkit-font-smoothing: antialiased;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+a {
+  color: var(--sea-deep);
+}
+
+h1,
+h2,
+h3 {
+  font-family: var(--font-display);
+  font-weight: 500;
+  line-height: 1.1;
+  margin: 0 0 0.5em;
+}
+
+p {
+  margin: 0 0 1em;
+}
+
+strong {
+  font-weight: 500;
+}
+
+.container {
+  width: min(100% - var(--gutter) * 2, var(--max));
+  margin-inline: auto;
+}
+
+.narrow {
+  max-width: 760px;
+}
+
+.center {
+  text-align: center;
+}
+
+.amp {
+  font-style: italic;
+  font-weight: 400;
+}
+
+.eyebrow {
+  font-size: 0.78rem;
+  font-weight: 400;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  margin-bottom: 0.75em;
+}
+
+.eyebrow--sea {
+  color: var(--sea);
+}
+
+.section-title {
+  font-size: clamp(2.2rem, 5vw, 3.2rem);
+}
+
+.lede {
+  font-size: 1.2rem;
+  color: var(--ink-soft);
+}
+
+.fine {
+  font-size: 0.92rem;
+  color: var(--ink-soft);
+}
+
+/* Header — sits on top of the hero / page banner on every page
+   -------------------------------------------------------------------------- */
+
+.site-header {
+  position: absolute;
+  inset: 0 0 auto;
+  z-index: 10;
+  padding: 22px 0;
+  color: var(--white);
+}
+
+.site-header .container {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px 32px;
+}
+
+.brand {
+  font-family: var(--font-display);
+  font-size: 1.6rem;
+  color: inherit;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px 26px;
+}
+
+.nav a {
+  color: inherit;
+  text-decoration: none;
+  font-size: 0.78rem;
+  font-weight: 400;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  padding: 4px 0;
+  border-bottom: 1px solid transparent;
+  transition: border-color 0.2s;
+}
+
+.nav a:hover,
+.nav a[aria-current="page"] {
+  border-bottom-color: currentColor;
+}
+
+/* Buttons
+   -------------------------------------------------------------------------- */
+
+.button {
+  display: inline-block;
+  padding: 14px 30px;
+  border: 1px solid var(--coral);
+  border-radius: 999px;
+  background: var(--coral);
+  color: var(--white);
+  font-size: 0.8rem;
+  font-weight: 500;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  text-decoration: none;
+  transition: background 0.2s, border-color 0.2s, transform 0.2s;
+}
+
+.button:hover {
+  background: var(--coral-deep);
+  border-color: var(--coral-deep);
+  transform: translateY(-1px);
+}
+
+.button--ghost {
+  background: transparent;
+  border-color: rgba(255, 255, 255, 0.85);
+}
+
+.button--ghost:hover {
+  background: rgba(255, 255, 255, 0.15);
+  border-color: var(--white);
+}
+
+.button.is-disabled {
+  background: #d8d0c3;
+  border-color: #d8d0c3;
+  color: #6f6a62;
+  pointer-events: none;
+  cursor: default;
+}
+
+/* Photos
+   A .photo box shows a tropical gradient + its file name until the real image
+   exists in /images. Once the file is there, the <img> covers the placeholder.
+   -------------------------------------------------------------------------- */
+
+.photo {
+  position: relative;
+  overflow: hidden;
+  margin: 0;
+  aspect-ratio: 4 / 3;
+  border-radius: var(--radius);
+  background:
+    radial-gradient(circle at 78% 22%, rgba(255, 244, 214, 0.75), transparent 28%),
+    linear-gradient(180deg, #bfe8e1 0%, #74c6bf 48%, #2a9895 52%, #1d6f72 100%);
+}
+
+.photo--sunset {
+  background:
+    radial-gradient(circle at 50% 58%, rgba(255, 236, 196, 0.9), transparent 22%),
+    linear-gradient(180deg, #f7cfa6 0%, #ee9f7c 46%, #c96a5c 56%, #4f6f7a 57%, #2a4f5c 100%);
+}
+
+.photo::before {
+  content: attr(data-label);
+  position: absolute;
+  left: 14px;
+  bottom: 12px;
+  font-size: 0.72rem;
+  letter-spacing: 0.06em;
+  color: rgba(255, 255, 255, 0.92);
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+}
+
+.photo img {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.photo__caption {
+  position: absolute;
+  inset: auto 0 0 0;
+  z-index: 2;
+  padding: 36px 16px 12px;
+  background: linear-gradient(180deg, transparent, rgba(8, 36, 40, 0.55));
+  color: var(--white);
+  font-family: var(--font-display);
+  font-size: 1.15rem;
+  font-style: italic;
+  line-height: 1.2;
+}
+
+.credits {
+  margin: 0 auto;
+  padding: 0 0 40px;
+  font-size: 0.75rem;
+  line-height: 1.6;
+  color: var(--ink-soft);
+}
+
+.credits a {
+  color: inherit;
+}
+
+.text-link {
+  font-size: 0.8rem;
+  font-weight: 500;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: var(--sea);
+}
+
+.text-link:hover {
+  text-decoration: underline;
+}
+
+/* Home hero
+   -------------------------------------------------------------------------- */
+
+.hero {
+  position: relative;
+  isolation: isolate;
+  display: grid;
+  place-items: center;
+  min-height: 100vh;
+  min-height: 100svh;
+  overflow: hidden;
+  color: var(--white);
+  text-align: center;
+}
+
+.hero__photo {
+  position: absolute;
+  inset: 0;
+  z-index: -2;
+  aspect-ratio: auto;
+  border-radius: 0;
+}
+
+/* Darken the photo just enough for the text to read */
+.hero::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: linear-gradient(
+    180deg,
+    rgba(8, 36, 40, 0.5) 0%,
+    rgba(8, 36, 40, 0.15) 35%,
+    rgba(8, 36, 40, 0.2) 60%,
+    rgba(8, 36, 40, 0.6) 100%
+  );
+}
+
+.hero__content {
+  padding: 140px var(--gutter) 90px;
+  text-shadow: 0 2px 18px rgba(0, 0, 0, 0.25);
+}
+
+.hero h1 {
+  font-size: clamp(3.2rem, 11vw, 7rem);
+  font-weight: 400;
+  margin: 0.1em 0 0.2em;
+}
+
+.hero__meta {
+  font-size: 1.05rem;
+  letter-spacing: 0.1em;
+}
+
+.hero__meta .dot {
+  margin: 0 0.6em;
+}
+
+.hero__actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 12px;
+  margin-top: 36px;
+  text-shadow: none;
+}
+
+/* Inner page banner
+   -------------------------------------------------------------------------- */
+
+.page-hero {
+  position: relative;
+  padding: 170px 0 130px;
+  background:
+    radial-gradient(circle at 85% 20%, rgba(255, 244, 214, 0.25), transparent 30%),
+    linear-gradient(160deg, var(--sea-deep) 0%, var(--sea) 60%, #4bb5aa 100%);
+  color: var(--white);
+  text-align: center;
+}
+
+.page-hero h1 {
+  font-size: clamp(3rem, 9vw, 5rem);
+  font-weight: 400;
+  margin-bottom: 0.15em;
+}
+
+.page-hero p:last-child {
+  font-size: 1.15rem;
+  margin: 0;
+  opacity: 0.92;
+}
+
+/* Wave into the sand-colored page */
+.page-hero::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -1px;
+  height: 70px;
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 80' preserveAspectRatio='none'%3E%3Cpath fill='%23faf6ef' d='M0 44 C 240 84 480 4 720 34 S 1200 74 1440 30 V80 H0 Z'/%3E%3C/svg%3E") bottom / 100% 100% no-repeat;
+}
+
+/* Sections
+   -------------------------------------------------------------------------- */
+
+.section {
+  padding: 88px 0;
+}
+
+.section--tint {
+  background: var(--sand-deep);
+}
+
+.intro {
+  display: grid;
+  grid-template-columns: 1fr 1.5fr;
+  gap: 16px 64px;
+  align-items: start;
+  margin-bottom: 44px;
+}
+
+.intro p {
+  color: var(--ink-soft);
+}
+
+/* Galleries: one large photo + two stacked, then any extras three across */
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-auto-flow: dense;
+  gap: 14px;
+}
+
+.gallery .photo:first-child {
+  grid-column: span 2;
+  grid-row: span 2;
+  aspect-ratio: auto;
+}
+
+.gallery--reverse .photo:first-child {
+  grid-column: 2 / span 2;
+}
+
+/* Home: three cards
+   -------------------------------------------------------------------------- */
+
+.cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  margin-top: 56px;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  padding: 34px 30px 30px;
+  border-radius: var(--radius);
+  background: var(--white);
+  box-shadow: var(--shadow);
+  color: inherit;
+  text-decoration: none;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 18px 40px rgba(14, 60, 64, 0.16);
+}
+
+.card__num {
+  font-family: var(--font-display);
+  font-size: 1.1rem;
+  font-style: italic;
+  color: var(--coral);
+}
+
+.card h3 {
+  font-size: 2rem;
+  margin: 6px 0 10px;
+}
+
+.card p {
+  color: var(--ink-soft);
+  flex: 1;
+}
+
+.card__link {
+  font-size: 0.78rem;
+  font-weight: 500;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--sea);
+}
+
+/* The Place: quick facts
+   -------------------------------------------------------------------------- */
+
+.facts {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  margin: 40px 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.facts li {
+  padding: 26px 26px 22px;
+  border-top: 2px solid var(--coral);
+  background: var(--white);
+  border-radius: 0 0 var(--radius) var(--radius);
+}
+
+.facts h3 {
+  font-size: 1.6rem;
+  margin-bottom: 6px;
+}
+
+.facts p {
+  margin: 0;
+  color: var(--ink-soft);
+}
+
+/* Reserve
+   -------------------------------------------------------------------------- */
+
+.reserve-card {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  overflow: hidden;
+  border-radius: var(--radius);
+  background: var(--white);
+  box-shadow: var(--shadow);
+}
+
+.reserve-card__photo {
+  aspect-ratio: auto;
+  min-height: 340px;
+  border-radius: 0;
+}
+
+.reserve-card__body {
+  padding: 56px 52px;
+}
+
+.reserve-card__body .button {
+  margin: 12px 0 22px;
+}
+
+.reserve-card + .credits {
+  padding: 16px 0 0;
+}
+
+/* Getting there: steps
+   -------------------------------------------------------------------------- */
+
+.steps {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.step {
+  display: grid;
+  grid-template-columns: 64px 1fr;
+  gap: 24px;
+  padding-bottom: 48px;
+  position: relative;
+}
+
+/* Dotted line connecting the step numbers */
+.step:not(:last-child)::before {
+  content: "";
+  position: absolute;
+  left: 31px;
+  top: 70px;
+  bottom: 8px;
+  border-left: 2px dotted rgba(31, 138, 138, 0.4);
+}
+
+.step__num {
+  display: grid;
+  place-items: center;
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  background: var(--sea);
+  color: var(--white);
+  font-family: var(--font-display);
+  font-size: 2rem;
+  line-height: 1;
+}
+
+.step__body h2 {
+  font-size: 2.2rem;
+  margin: 10px 0 12px;
+}
+
+.step__body > p {
+  color: var(--ink-soft);
+}
+
+.options {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 18px;
+  margin-top: 22px;
+}
+
+.option {
+  padding: 28px 26px 24px;
+  border-radius: var(--radius);
+  background: var(--white);
+  box-shadow: var(--shadow);
+}
+
+.option__tag {
+  display: inline-block;
+  margin-bottom: 14px;
+  padding: 3px 12px;
+  border-radius: 999px;
+  background: rgba(31, 138, 138, 0.12);
+  color: var(--sea-deep);
+  font-size: 0.7rem;
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+
+.option h3 {
+  font-size: 1.75rem;
+  margin-bottom: 2px;
+}
+
+.option__time {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: 1.15rem;
+  color: var(--coral-deep);
+  margin-bottom: 12px;
+}
+
+.option p {
+  color: var(--ink-soft);
+}
+
+.option__links {
+  margin: 20px 0 0;
+  padding: 0;
+  list-style: none;
+  border-top: 1px solid rgba(23, 57, 59, 0.1);
+}
+
+.option__links li {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+  padding-top: 16px;
+}
+
+.option__links span {
+  flex: 1 1 100%;
+  font-weight: 400;
+}
+
+.pill {
+  display: inline-block;
+  padding: 7px 16px;
+  border: 1px solid var(--sea);
+  border-radius: 999px;
+  color: var(--sea-deep);
+  font-size: 0.72rem;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  text-decoration: none;
+  transition: background 0.2s, color 0.2s;
+}
+
+.pill:hover {
+  background: rgba(31, 138, 138, 0.1);
+}
+
+.pill--solid {
+  background: var(--sea);
+  color: var(--white);
+}
+
+.pill--solid:hover {
+  background: var(--sea-deep);
+}
+
+.note {
+  margin-top: 8px;
+  padding: 26px 30px;
+  border-left: 3px solid var(--coral);
+  border-radius: 0 var(--radius) var(--radius) 0;
+  background: var(--sand-deep);
+}
+
+.note h3 {
+  font-size: 1.5rem;
+}
+
+.note ul {
+  margin: 0;
+  padding-left: 1.1em;
+  color: var(--ink-soft);
+}
+
+.note li + li {
+  margin-top: 6px;
+}
+
+/* Footer
+   -------------------------------------------------------------------------- */
+
+.site-footer {
+  padding: 56px 0;
+  background: var(--sea-deep);
+  color: rgba(255, 255, 255, 0.85);
+  text-align: center;
+  font-size: 0.85rem;
+  letter-spacing: 0.08em;
+}
+
+.site-footer p {
+  margin: 0;
+}
+
+.site-footer__names {
+  font-family: var(--font-display);
+  font-size: 2rem;
+  letter-spacing: 0;
+  color: var(--white);
+  margin-bottom: 4px !important;
+}
+
+/* Responsive
+   -------------------------------------------------------------------------- */
+
+@media (max-width: 860px) {
+  .cards,
+  .facts {
+    grid-template-columns: 1fr;
+  }
+
+  .intro,
+  .reserve-card,
+  .options {
+    grid-template-columns: 1fr;
+  }
+
+  .reserve-card__photo {
+    min-height: 0;
+    aspect-ratio: 4 / 3;
+  }
+
+  .reserve-card__body {
+    padding: 36px 28px;
+  }
+}
+
+@media (max-width: 640px) {
+  .site-header .container {
+    flex-direction: column;
+  }
+
+  .nav {
+    justify-content: center;
+    gap: 2px 14px;
+  }
+
+  .nav a {
+    font-size: 0.68rem;
+    letter-spacing: 0.08em;
+  }
+
+  .hero__content {
+    padding-top: 170px;
+  }
+
+  .hero__meta .dot {
+    display: block;
+    height: 0;
+    overflow: hidden;
+  }
+
+  .page-hero {
+    padding: 180px 0 110px;
+  }
+
+  .section {
+    padding: 64px 0;
+  }
+
+  .gallery {
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+  }
+
+  .gallery .photo:first-child,
+  .gallery--reverse .photo:first-child {
+    grid-column: 1 / -1;
+    grid-row: auto;
+    aspect-ratio: 4 / 3;
+  }
+
+  /* With the first photo full width, an even count leaves the last one alone */
+  .gallery .photo:last-child:nth-child(even) {
+    grid-column: 1 / -1;
+  }
+
+  .step {
+    grid-template-columns: 44px 1fr;
+    gap: 16px;
+  }
+
+  .step__num {
+    width: 44px;
+    height: 44px;
+    font-size: 1.5rem;
+  }
+
+  .step:not(:last-child)::before {
+    left: 21px;
+    top: 50px;
+  }
+
+  .step__body h2 {
+    font-size: 1.9rem;
+    margin-top: 4px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    transition: none !important;
+  }
+}
